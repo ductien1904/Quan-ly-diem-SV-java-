@@ -1,0 +1,21 @@
+    package bangdiem;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection {
+    private static final String URL = "jdbc:mysql://localhost:3306/StudentManager?useSSL=false&serverTimezone=UTC";
+    private static final String USER = "root"; // user MySQL của bạn
+    private static final String PASS = "";     // pass MySQL của bạn
+
+    public static Connection getConnection() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // load driver
+            return DriverManager.getConnection(URL, USER, PASS);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}
+
